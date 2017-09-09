@@ -9,10 +9,16 @@ namespace VirtualPet
     class GrayStorm
     {
         private string akaName;
-        private int hungerLevel;
-        private int thirstLevel;
-        private int wasteLevel;
-        private int sleepLevel;
+        private int currentHungerLevel;
+        private int maxHungerLevel;
+        private int currentThirstLevel;
+        private int maxThirstLevel;
+        private int currentWasteLevel;
+        private int maxWasteLevel;
+        private int currentSleepLevel;
+        private int maxSleepLevel;
+        //private int currentBathroomLevel;
+        //private int maxBathroomLevel;
 
         public string AKAName
         {
@@ -20,97 +26,233 @@ namespace VirtualPet
             set { this.akaName = value; }
         }
 
-        public int HungerLevel
+        public int CurrentHungerLevel
         {
-            get { return this.hungerLevel; }
+            get { return this.currentHungerLevel; }
         }
-        public int ThirstLevel
+        public int MaxHungerLevel
         {
-            get { return this.thirstLevel; }
+            get { return this.maxHungerLevel; }
         }
-        public int WasteLevel
+        public int CurrentThirstLevel
         {
-            get { return this.wasteLevel; }
+            get { return this.currentThirstLevel; }
         }
+        public int MaxThirstLevel
+        {
+            get { return this.maxThirstLevel; }
+        }
+        public int CurrentWasteLevel
+        {
+            get { return this.currentWasteLevel; }
+        }
+        public int MaxWasteLevel
+        {
+            get { return this.maxWasteLevel; }
+        }
+        public int CurrentSleepLevel
+        {
+            get { return this.currentSleepLevel; }
+        }
+        public int MaxSleepLevel
+        {
+            get { return this.maxSleepLevel; }
+        }
+        //public int CurrentBathroomLevel
+        //{
+        //    get { return this.currentBathroomLevel; }
+        //}
+        //public int MaxBathroomLevel
+        //{
+        //    get { return this.maxBathroomLevel; }
+        //}
 
         public GrayStorm()
         {
             this.akaName = "FightingWolf";
-            this.hungerLevel = 5;
-            this.thirstLevel = 5;
-            this.wasteLevel = 5;
-            this.sleepLevel = 5;
+            this.currentHungerLevel = 5;
+            this.maxHungerLevel = 5;
+            this.currentThirstLevel = 5;
+            this.maxThirstLevel = 5;
+            this.currentWasteLevel = 5;
+            this.maxWasteLevel = 5;
+            this.currentSleepLevel = 5;
+            this.maxSleepLevel = 5;
         }
 
-        public GrayStorm(string akaName)
+        public GrayStorm(int currentHungerLevel, int currentThirstLevel, int currentWasteLevel, int currentSleepLevel)
         {
-            this.akaName = akaName;
-            this.hungerLevel = 20;
-            this.thirstLevel = 20;
-            this.wasteLevel = 20;
-            this.sleepLevel = 15;
+            this.currentHungerLevel = 10;            
+            this.currentThirstLevel = 10;            
+            this.currentWasteLevel = 10;            
+            this.currentSleepLevel = 15;
+            //this.currentBathroomLevel = 15;
+            
         }
-        public GrayStorm(int hungerLevel, int thirstLevel, int wasteLevel, int sleepLevel)
+        public GrayStorm(double maxHungerLevel, double maxThirstLevel, double maxWasteLevel, double maxSleeplevel)
         {
-            this.hungerLevel = hungerLevel;
-            this.thirstLevel = thirstLevel;
-            this.wasteLevel = wasteLevel;
-            this.sleepLevel = sleepLevel;
+            this.maxHungerLevel = 50;
+            this.maxThirstLevel = 50;
+            this.maxWasteLevel = 50;
+            this.maxSleepLevel = 50;
+            //this.maxBathroomLevel = 25;
         }
 
+        
 
         public void ChampionEater()
         {
-            if (this.hungerLevel > 23)
+            if (this.currentHungerLevel > 19|| this.CurrentThirstLevel > 22 || this.currentSleepLevel > 22 || this.currentWasteLevel < 2)
             {
-                Console.WriteLine("I have no room to hold more food!!! I need to go outside!!!!");
+                Console.WriteLine("I really have more pressing needs than to eat right now!!!!");
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
             }
+
 
             else
             {
-                this.hungerLevel += 3;
-                this.thirstLevel += 2;
-                this.wasteLevel += 5;
-                this.sleepLevel += 1;
-                Console.WriteLine("This is some tasty salmon");
+                this.currentHungerLevel += 10;
+                this.currentThirstLevel += 1;
+                this.currentWasteLevel -= 1;
+                this.currentSleepLevel += 1;
+                Console.WriteLine("This is some tasty river salmon");
+                Console.WriteLine();
+                GrayStorm storm2 = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+                GrayStorm addingAttributes = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+
             }
         }
 
         public void CatChaser()
         {
-            if(this.hungerLevel < 2)
+            if(this.currentHungerLevel < 4 || this.currentThirstLevel < 4 || this.currentWasteLevel < 3 || this.currentSleepLevel < 6)
             {
-                Console.WriteLine("I have no energy to chase these kitty kats, I need food and water..and possibly a nap!!!");
+                Console.WriteLine("Chasing Kats is fun but now is not the time for that!!!");
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
             }
 
             else
             {
-                this.hungerLevel -= 4;
-                this.thirstLevel -= 2;
-                this.wasteLevel += 1;
-                this.sleepLevel -= 5;
-                Console.WriteLine("This is tiring chasing these kats, but I can't stop");
+                this.currentHungerLevel -= 1;
+                this.currentThirstLevel -= 1;
+                this.currentWasteLevel -= 1;
+                this.currentSleepLevel -= 5;
+                Console.WriteLine("This is tiring chasing these kats, but it's so fun!!!!!");
+                Console.WriteLine();
+                GrayStorm storm2 = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+                GrayStorm addingAttributes = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+
             }
         }
 
         public void SleepyTime()
         {
-            if(this.thirstLevel < 1)
+            if(this.currentThirstLevel < 4 || this.currentSleepLevel > 19 || this.currentHungerLevel < 4 || this.currentWasteLevel < 3)
             {
-                Console.WriteLine("I'm having a hard time sleeping with this dry mouth, need a drink first");
+                Console.WriteLine("Sleep at a time like this?? I think not!!!!");
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
             }
 
             else
             {
-                this.hungerLevel -= 3;
-                this.wasteLevel += 2;
-                this.sleepLevel -= 5;
-                this.thirstLevel -= 4;
-                Console.WriteLine("I'm ready to have some fun!!!");
+                this.currentHungerLevel -= 1;
+                this.currentWasteLevel -= 1;
+                this.currentSleepLevel += 9;
+                this.currentThirstLevel -= 1;
+                Console.WriteLine("Your bed sure does look comfortable right now!!!");
+                Console.WriteLine();
+                GrayStorm storm2 = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+                GrayStorm addingAttributes = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+
             }
         }
 
+        public void BathRoomBreak()
+        {
+            if (this.currentThirstLevel < 3 || this.currentHungerLevel < 3 || this.currentWasteLevel > 19 || this.currentSleepLevel < 3)
+            {
+                Console.WriteLine("No need to go outside at this time!!!!");
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+            }
 
-        
+            else
+            {
+                this.currentHungerLevel -= 1;
+                this.currentWasteLevel += 10;
+                this.currentSleepLevel -= 1;
+                this.currentThirstLevel -= 1;
+                Console.WriteLine("Talk about relieving!!!");
+                Console.WriteLine();
+                GrayStorm storm2 = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+                GrayStorm addingAttributes = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+            }
+        }
+
+        public void ThirstLevel()
+        {
+            if (this.currentThirstLevel > 19 || this.currentWasteLevel < 3 || this.currentHungerLevel < 3 || this.currentSleepLevel < 3)
+            {
+                Console.WriteLine("I don't feel like drinking right now!");
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+            }
+
+            else
+            {
+                this.currentHungerLevel -= 1;
+                this.currentWasteLevel -= 1;
+                this.currentSleepLevel -= 1;
+                this.currentThirstLevel += 10;
+                Console.WriteLine("That was some tasty H2O!!!");
+                Console.WriteLine();
+                GrayStorm storm2 = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+                Console.WriteLine("Hunger Level: " + currentHungerLevel);
+                Console.WriteLine("Thirst Level: " + currentThirstLevel);
+                Console.WriteLine("Waste Level: " + currentWasteLevel);
+                Console.WriteLine("Sleep Level: " + currentSleepLevel);
+                Console.WriteLine();
+                GrayStorm addingAttributes = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
+            }
+        }
+
     }
 }
