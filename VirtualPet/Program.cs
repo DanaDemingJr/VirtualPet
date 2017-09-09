@@ -10,6 +10,14 @@ namespace VirtualPet
     {
         static void Main(string[] args)
         {
+            GrayStorm AKA = new GrayStorm();
+            AKA.AKAName = "FightingWolf";
+            Console.WriteLine(AKA.AKAName);
+
+            GrayStorm hungerLevel = new GrayStorm();
+            Console.WriteLine(hungerLevel);
+
+
         }
     }
 }
