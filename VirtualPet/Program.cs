@@ -16,7 +16,7 @@ namespace VirtualPet
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, my name is GrayStorm");
+            Console.WriteLine("Hello, my name is GrayStorm and I am a wolf.  I sure hope you will take care of me!!");
             Console.WriteLine();
             GrayStorm storm2 = new GrayStorm(currentHungerLevel, currentThirstLevel, currentWasteLevel, currentSleepLevel);
             Console.WriteLine("Hunger Level: " + storm2.CurrentHungerLevel);

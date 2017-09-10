@@ -8,7 +8,6 @@ namespace VirtualPet
 {
     class GrayStorm
     {
-        private string akaName;
         private int currentHungerLevel;
         private int maxHungerLevel;
         private int currentThirstLevel;
@@ -19,12 +18,6 @@ namespace VirtualPet
         private int maxSleepLevel;
         //private int currentBathroomLevel;
         //private int maxBathroomLevel;
-
-        public string AKAName
-        {
-            get { return this.akaName; }
-            set { this.akaName = value; }
-        }
 
         public int CurrentHungerLevel
         {
@@ -69,7 +62,6 @@ namespace VirtualPet
 
         public GrayStorm()
         {
-            this.akaName = "FightingWolf";
             this.currentHungerLevel = 5;
             this.maxHungerLevel = 5;
             this.currentThirstLevel = 5;
